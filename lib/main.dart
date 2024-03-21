@@ -1,5 +1,11 @@
+import 'package:demo/Admin/admin_login.dart';
+import 'package:demo/User/user_info.dart';
+import 'package:demo/User/user_login.dart';
+import 'package:demo/practice.dart';
 import 'package:demo/text.dart';
 import 'package:flutter/material.dart';
+
+import 'login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +22,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 67, 10, 10)),
+            ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Demotext(),
+      home:UserLogin(),
     );
   }
 }
