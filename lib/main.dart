@@ -1,5 +1,5 @@
 import 'package:demo/Admin/admin_login.dart';
-import 'package:demo/User/user_info.dart';
+import 'package:demo/User/User_create.dart';
 import 'package:demo/User/user_login.dart';
 import 'package:demo/practice.dart';
 import 'package:demo/text.dart';
