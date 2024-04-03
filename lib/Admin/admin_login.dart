@@ -41,10 +41,8 @@ TextFormField(
               children: [
                 Text("Forgot Password?"),
               ],
-            )
-
+            ),
           ],
-
         ),
       ),
     );
