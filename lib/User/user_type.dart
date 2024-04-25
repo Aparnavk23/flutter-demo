@@ -15,7 +15,7 @@ class _UserTypeState extends State<UserType> {
       backgroundColor: Colors.black,
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(60),
+          // padding: EdgeInsets.all(60),
           child: Row(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(

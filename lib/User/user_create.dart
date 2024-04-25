@@ -7,6 +7,10 @@ class UserCreate extends StatefulWidget {
   @override
   State<UserCreate> createState() => _UserCreateState();
 }
+final _nameController= TextEditingController();
+final _passwordController = TextEditingController();
+
+final _Formkey=GlobalKey<FormFieldState>();
 
 class _UserCreateState extends State<UserCreate> {
   @override
@@ -17,45 +21,72 @@ class _UserCreateState extends State<UserCreate> {
         decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/WOMEN.png'),fit: BoxFit.cover,)),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Login/Register',style: TextStyle(color: Colors.white,fontSize: 24),),
-              Text("Start to save Everyday.",style: TextStyle(color: Colors.white),),
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(40),
-                    gapPadding: 10,
+          child: Form(
+            key:_Formkey ,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Login/Register',style: TextStyle(color: Colors.white,fontSize: 24),),
+                Text("Start to save Everyday.",style: TextStyle(color: Colors.white),),
+
+                TextFormField(
+                  controller: _nameController,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      gapPadding: 10,
+                    ),
+                    labelText: "Enter your Email",
+                        labelStyle: TextStyle(color: Color.fromRGBO(75, 70, 70, 1),fontSize: 14,),
                   ),
-                  labelText: "Enter your Email",
-                      labelStyle: TextStyle(color: Color.fromRGBO(75, 70, 70, 1),fontSize: 14,),
+    validator: (value) {
+    if(value!.isEmpty){
+      return 'please';
+    }
+    return null;
+                  },
+
                 ),
-              ),
-              SizedBox(
-                height: 13,
-              ),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(40),
-                    gapPadding: 10,
+                SizedBox(
+                  height: 13,
+                ),
+                TextFormField(
+
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      gapPadding: 10,
+                    ),
+                    labelText: "Password",
+                    labelStyle: TextStyle(color: Color.fromRGBO(75, 70, 70, 1),fontSize: 14,),
+
                   ),
-                  labelText: "Password",
-                  labelStyle: TextStyle(color: Color.fromRGBO(75, 70, 70, 1),fontSize: 14,),
+                  validator: (value) {
+                    if(value!.isEmpty){
+                      return 'please enter value';
+                    }
+                    return null;
+                  },
+
                 ),
-              ),
-              Text('Forgot Password?',style: TextStyle(color:Colors.white,fontSize: 10,),),
-              SizedBox(height: 13,),
-              ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context) =>UserDetail()),);
-              },style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(250, 205, 24, 1),foregroundColor: Colors.black), child: Text('Login')),
-            ],
+                Text('Forgot Password?',style: TextStyle(color:Colors.white,fontSize: 10,),),
+                SizedBox(height: 13,),
+                ElevatedButton(onPressed: (){
+                  // if(_Formkey.currentState!.validate()){
+                  //   print('is validate');
+                    Navigator.push(context, MaterialPageRoute(builder:(context) =>UserDetail(),));
+                  // }else {
+                  //   print('not  validate');
+                  // }
+                },style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(250, 205, 24, 1),foregroundColor: Colors.black), child: Text('Login')),
+              ],
+            ),
           ),
         ),
       ),

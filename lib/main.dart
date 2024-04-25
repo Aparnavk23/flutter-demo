@@ -1,8 +1,14 @@
+import 'package:demo/Admin/admin_home.dart';
 import 'package:demo/Admin/admin_login.dart';
+import 'package:demo/Jwellery/jwellery_register.dart';
 import 'package:demo/User/User_create.dart';
+import 'package:demo/User/user_buy.dart';
 import 'package:demo/User/user_details.dart';
+import 'package:demo/User/user_home.dart';
 import 'package:demo/User/user_login.dart';
+import 'package:demo/User/user_menu.dart';
 import 'package:demo/User/user_type.dart';
+import 'package:demo/User/user_welcome.dart';
 import 'package:demo/practice.dart';
 import 'package:demo/text.dart';
 import 'package:flutter/material.dart';
