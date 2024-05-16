@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "720763185617",
+    "firebase_url": "https://goldmart-d100b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "goldmart-d100b",
+    "storage_bucket": "goldmart-d100b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720763185617:android:6284843f308e62efc8d8f0",
+        "android_client_info": {
+          "package_name": "com.example.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANgEsQdleSH3MLhiyA5YRB2cVd5qCaVns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

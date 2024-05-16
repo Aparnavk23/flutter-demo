@@ -12,17 +12,107 @@ class _AdminHomeState extends State<AdminHome> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black,
-        body: Container(
-        padding: EdgeInsets.all(60),
-    child: Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ElevatedButton(onPressed: (){}, child:Text('User',style: TextStyle(fontSize: 20 ),),style: ElevatedButton.styleFrom(
-          backgroundColor: Color.fromRGBO(217, 217, 217, 1),foregroundColor: Colors.black,
-        ),),
-        SizedBox(height: 30,),
-      ],
-    ),
+        body: Center(
+          child: Container(
+          padding: EdgeInsets.all(50),
+              child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+          // ElevatedButton(onPressed: (){}, child:Text('User',style: TextStyle(fontSize: 20 ),),style: ElevatedButton.styleFrom(
+          //   backgroundColor: Color.fromRGBO(217, 217, 217, 1),foregroundColor: Colors.black,
+          // ),),
+          // SizedBox(height: 30,),
+          // ElevatedButton(onPressed: (){}, child:Text('Jwellery',style: TextStyle(fontSize: 20 ),),style: ElevatedButton.styleFrom(
+          //   backgroundColor: Color.fromRGBO(217, 217, 217, 1),foregroundColor: Colors.black,
+          // ),),
+          // SizedBox(height: 30,),
+          // ElevatedButton(onPressed: (){}, child:Text('Orders',style: TextStyle(fontSize: 20 ),),style: ElevatedButton.styleFrom(
+          //   backgroundColor: Color.fromRGBO(217, 217, 217, 1),foregroundColor: Colors.black,
+          // ),),
+          // SizedBox(height: 30,),
+          // ElevatedButton(onPressed: (){}, child:Text('Payment',style: TextStyle(fontSize: 20 ),),style: ElevatedButton.styleFrom(
+          //   backgroundColor: Color.fromRGBO(217, 217, 217, 1),foregroundColor: Colors.black,
+          // ),),
+          // SizedBox(height: 30,),
+          Container(
+            height: 78,
+            width: 197,
+            child: Center(
+              child: Text(
+                "User",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Color.fromRGBO(217, 217, 217, 1),
+            ),
+
+          ),
+          SizedBox(height: 30,),
+          Container(
+            height: 78,
+            width: 197,
+            child: Center(
+              child: Text(
+                "Jwellery",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+              color: Color.fromRGBO(217, 217, 217, 1),
+            ),
+
+          ),
+          SizedBox(height: 30,),
+          Container(
+            height: 78,
+            width: 197,
+            child: Center(
+              child: Text(
+                "Orders",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+              color: Color.fromRGBO(217, 217, 217, 1),
+            ),
+
+          ),
+          SizedBox(height: 30,),
+          Container(
+            height: 78,
+            width: 197,
+            child: Center(
+              child: Text(
+                "Payment",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+              color: Color.fromRGBO(217, 217, 217, 1),
+            ),
+
+          ),
+          SizedBox(height: 30,),
+                ],
+              ),
+          ),
         ),
     );
   }
