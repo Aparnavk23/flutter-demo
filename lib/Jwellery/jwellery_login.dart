@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:demo/Jwellery/jwellery_stock.dart';
 import 'package:demo/User/user_details.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class JwelleryLogin extends StatefulWidget {
   const JwelleryLogin({super.key});
@@ -8,26 +11,51 @@ class JwelleryLogin extends StatefulWidget {
   State<JwelleryLogin> createState() => _JwelleryLoginState();
 }
 
-final _nameController = TextEditingController();
-final _passwordController = TextEditingController();
-
-final _Formkey = GlobalKey<FormFieldState>();
-
 class _JwelleryLoginState extends State<JwelleryLogin> {
+  final formkey = GlobalKey<FormState>();
+  var mail = TextEditingController();
+  var password = TextEditingController();
+  String id = "";
+  void jwellLogin() async {
+    final user = await FirebaseFirestore.instance
+        .collection('JwellReg')
+        .where('Mail', isEqualTo: mail.text)
+        .where('Password', isEqualTo: password.text)
+        .get();
+    if (user.docs.isNotEmpty) {
+      id = user.docs[0].id;
+      print('done');
+
+      SharedPreferences data = await SharedPreferences.getInstance();
+      data.setString('id', id);
+      print("get sp");
+      Navigator.push(context, MaterialPageRoute(
+        builder: (context) {
+          return JwelleryStock();
+        },
+      ));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+        "username and password error",
+        style: TextStyle(color: Colors.red),
+      )));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/WOMEN.png'),
-              fit: BoxFit.cover,
-            )),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Form(
-            key: _Formkey,
+    return Form(
+      key: formkey,
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage('assets/WOMEN.png'),
+            fit: BoxFit.cover,
+          )),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -40,7 +68,12 @@ class _JwelleryLoginState extends State<JwelleryLogin> {
                   style: TextStyle(color: Colors.white),
                 ),
                 TextFormField(
-                  controller: _nameController,
+                  controller: mail,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'please enter valid email';
+                    }
+                  },
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -54,18 +87,17 @@ class _JwelleryLoginState extends State<JwelleryLogin> {
                       fontSize: 14,
                     ),
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please';
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(
                   height: 13,
                 ),
                 TextFormField(
-                  controller: _passwordController,
+                  controller: password,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'please enter ';
+                    }
+                  },
                   obscureText: true,
                   decoration: InputDecoration(
                     filled: true,
@@ -80,12 +112,6 @@ class _JwelleryLoginState extends State<JwelleryLogin> {
                       fontSize: 14,
                     ),
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please enter value';
-                    }
-                    return null;
-                  },
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -105,22 +131,14 @@ class _JwelleryLoginState extends State<JwelleryLogin> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      // if(_Formkey.currentState!.validate()){
-                      //   print('is validate');
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => UserDetail(),
-                          ));
-                      // }else {
-                      //   print('not  validate');
-                      // }
+                      if (formkey.currentState!.validate()) {
+                        jwellLogin();
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromRGBO(250, 205, 24, 1),
                         foregroundColor: Colors.black),
                     child: Text('Login')),
-
               ],
             ),
           ),

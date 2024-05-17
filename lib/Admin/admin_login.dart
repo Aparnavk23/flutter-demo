@@ -80,7 +80,7 @@ class _AdminloginState extends State<Adminlogin> {
                         builder: (context) => AdminHome(),
                       ));
                 }
-              }, child:Text('submit'),style: ElevatedButton.styleFrom(
+              }, child:Text('Login'),style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.orangeAccent,foregroundColor: Colors.black,
               ),),
 

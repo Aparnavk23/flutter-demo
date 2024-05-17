@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AdminUser extends StatefulWidget {
@@ -10,36 +11,40 @@ class AdminUser extends StatefulWidget {
 class _AdminUserState extends State<AdminUser> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-        child: Container(
-        padding: EdgeInsets.all(50),
-    child: Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children:[
-    Container(
-    height: 78,
-    width: 197,
-    child: Center(
-    child: Text(
-    "User",
-    style: TextStyle(
-    color: Colors.black,
-    fontSize: 28,
-    ),
-    ),
-    ),
-    decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(10),
-    color: Color.fromRGBO(217, 217, 217, 1),
-    ),
-
-    ),
-    SizedBox(height: 30,),
-    ],
-    ),),)
+        return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(automaticallyImplyLeading: false,
+          backgroundColor: Colors.black,
+          title: Center(child: Text("USERS",style: TextStyle(color: Colors.white,fontSize: 20),)),
+        ),
+          backgroundColor: Colors.black,
+          body: ListView.builder(
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height*.02,),
+                    Card(
+                        child: ListTile(
+                      leading: Text(
+                        "Jithusha",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                      ),
+                      trailing: Icon(CupertinoIcons.eye),
+                    )),
+                    SizedBox(
+                      height: 30,
+                    ),
+                  ],
+                ),
+              );
+            },
+          )),
     );
-
   }
 }
