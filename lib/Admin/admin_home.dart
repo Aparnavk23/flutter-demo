@@ -13,10 +13,19 @@ class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.black,
+        title: Center(
+            child: Text(
+              "Manage",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            )),
+      ),
     backgroundColor: Colors.black,
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(50),
+          padding: EdgeInsets.all(40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

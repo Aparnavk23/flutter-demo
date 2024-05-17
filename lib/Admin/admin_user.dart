@@ -15,7 +15,7 @@ class _AdminUserState extends State<AdminUser> {
       child: Scaffold(
         appBar: AppBar(automaticallyImplyLeading: false,
           backgroundColor: Colors.black,
-          title: Center(child: Text("USERS",style: TextStyle(color: Colors.white,fontSize: 20),)),
+          title: Center(child: Text("Users",style: TextStyle(color: Colors.white,fontSize: 20),)),
         ),
           backgroundColor: Colors.black,
           body: ListView.builder(
@@ -44,7 +44,9 @@ class _AdminUserState extends State<AdminUser> {
                 ),
               );
             },
-          )),
+          ),
+          floatingActionButton: IconButton(onPressed: (){}, icon: Icon(Icons.person_add,color: Color.fromRGBO(250, 205, 24, 1),size: 35,)),
+      ),
     );
   }
 }

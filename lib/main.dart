@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  Adminlogin (),
+      home:  JwelleryRegister (),
     );
   }
 }
