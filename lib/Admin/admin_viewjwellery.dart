@@ -2,14 +2,14 @@ import 'package:demo/Admin/admin_jwellery.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AdminView extends StatefulWidget {
-  const AdminView({super.key});
+class AdminJwellview extends StatefulWidget {
+  const AdminJwellview({super.key});
 
   @override
-  State<AdminView> createState() => _AdminViewState();
+  State<AdminJwellview> createState() => _AdminJwellviewState();
 }
 
-class _AdminViewState extends State<AdminView> {
+class _AdminJwellviewState extends State<AdminJwellview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,11 +69,11 @@ class _AdminViewState extends State<AdminView> {
               Container(
                 height: MediaQuery.of(context).size.height*.09,
                 width:MediaQuery.of(context).size.width*.15,
-                decoration: BoxDecoration(borderRadius:BorderRadius.circular(10),image: DecorationImage(image: AssetImage("assets/rectgirl.png"),fit: BoxFit.fill)),
+                decoration: BoxDecoration(borderRadius:BorderRadius.circular(10),),
               ),
               SizedBox(height: MediaQuery.of(context).size.height*.04,),
 
-              Text("Child Name",style: TextStyle(color: Colors.grey),),
+              Text("Jwellery name:",style: TextStyle(color: Colors.grey),),
 
               Text(""),
               Divider(color: Colors.grey,endIndent: 20,),
@@ -88,7 +88,7 @@ class _AdminViewState extends State<AdminView> {
               Text(""),
               Divider(endIndent: 20,),
               SizedBox(height: MediaQuery.of(context).size.height*.01,),
-              Text("Parent Name",style: TextStyle(color: Colors.grey),),
+              Text("",style: TextStyle(color: Colors.grey),),
               SizedBox(height: MediaQuery.of(context).size.height*.01,),
               Text(""),
               Divider(endIndent: 20,),

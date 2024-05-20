@@ -19,14 +19,14 @@ class _UserHomeState extends State<UserHome> {
             mainAxisSize: MainAxisSize.min, // Restrict Row width
             children: [
               SizedBox(
-                width: 40,
+                width: 5,
               ),
-              Text('Current Gold \n Rate'),
+              Text('Current Gold Rate:',style: TextStyle(fontSize: 20),),
               SizedBox(
-                width: 50,
+                width:6,
               ),
               Text(
-                '6815 per \n gram',
+                'Rs.6815/gm',style: TextStyle(fontSize: 20),
                 overflow: TextOverflow.ellipsis, // Handle overflow
               ),
             ],

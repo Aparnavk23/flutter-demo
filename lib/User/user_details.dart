@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:demo/User/User_create.dart';
 import 'package:demo/User/user_welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -21,8 +22,8 @@ class _UserDetailState extends State<UserDetail> {
   var email = TextEditingController();
   var password = TextEditingController();
   var confirmpassword = TextEditingController();
-  Future<dynamic> JwellReg() async {
-    await FirebaseFirestore.instance.collection("JwellReg").add({
+  Future<dynamic> UserReg() async {
+    await FirebaseFirestore.instance.collection("UserReg").add({
       "User Name": username.text,
       "Age": age.text,
       "vaild proof": validproof.text,
@@ -32,9 +33,9 @@ class _UserDetailState extends State<UserDetail> {
       "Confirm Password": confirmpassword.text,
     });
     print('done');
-    // Navigator.push(context, MaterialPageRoute(builder: (context) {
-    //   return JwelleryLogin();
-    // },));
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return UserCreate();
+    },));
   }
   @override
   Widget build(BuildContext context) {
@@ -299,6 +300,7 @@ class _UserDetailState extends State<UserDetail> {
                   ElevatedButton(
                     onPressed: () {
                       if (formkey.currentState!.validate()) {
+                        UserReg();
 
                       }
                       },

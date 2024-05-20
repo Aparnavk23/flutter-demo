@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo/User/user_details.dart';
+import 'package:demo/User/user_home.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserCreate extends StatefulWidget {
   const UserCreate({super.key});
@@ -8,12 +11,38 @@ class UserCreate extends StatefulWidget {
   State<UserCreate> createState() => _UserCreateState();
 }
 
-final _nameController = TextEditingController();
-final _passwordController = TextEditingController();
-
-final _Formkey = GlobalKey<FormFieldState>();
-
 class _UserCreateState extends State<UserCreate> {
+  final formkey = GlobalKey<FormState>();
+  var mail = TextEditingController();
+  var password = TextEditingController();
+  String id = "";
+  void userLogin() async {
+    final user = await FirebaseFirestore.instance
+        .collection('UserReg')
+        .where('Email', isEqualTo: mail.text)
+        .where('Password', isEqualTo: password.text)
+        .get();
+    if (user.docs.isNotEmpty) {
+      id = user.docs[0].id;
+      print('done');
+
+      SharedPreferences data = await SharedPreferences.getInstance();
+      data.setString('id', id);
+      print("get sp");
+      Navigator.push(context, MaterialPageRoute(
+        builder: (context) {
+          return UserHome();
+        },
+      ));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+            "username and password error",
+            style: TextStyle(color: Colors.red),
+          )));
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +56,7 @@ class _UserCreateState extends State<UserCreate> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
-            key: _Formkey,
+            key: formkey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -40,7 +69,13 @@ class _UserCreateState extends State<UserCreate> {
                   style: TextStyle(color: Colors.white),
                 ),
                 TextFormField(
-                  controller: _nameController,
+                  controller: mail,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'please enter your Email ';
+                    }
+                  },
+
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -54,18 +89,17 @@ class _UserCreateState extends State<UserCreate> {
                       fontSize: 14,
                     ),
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please';
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(
                   height: 13,
                 ),
                 TextFormField(
-                  controller: _passwordController,
+                  controller: password,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'please enter correct password ';
+                    }
+                  },
                   obscureText: true,
                   decoration: InputDecoration(
                     filled: true,
@@ -80,12 +114,6 @@ class _UserCreateState extends State<UserCreate> {
                       fontSize: 14,
                     ),
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please enter value';
-                    }
-                    return null;
-                  },
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -105,16 +133,9 @@ class _UserCreateState extends State<UserCreate> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      // if(_Formkey.currentState!.validate()){
-                      //   print('is validate');
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => UserDetail(),
-                          ));
-                      // }else {
-                      //   print('not  validate');
-                      // }
+                      if (formkey.currentState!.validate()) {
+                        userLogin();
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromRGBO(250, 205, 24, 1),
@@ -124,7 +145,11 @@ class _UserCreateState extends State<UserCreate> {
                   height: 3,
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserDetail(),
+                        ));},
                     child: Text(
                       "Create New Acount",
                       style: TextStyle(
