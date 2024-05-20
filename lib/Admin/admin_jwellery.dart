@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo/Admin/admin_user.dart';
+import 'package:demo/Admin/admin_viewjwellery.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -65,17 +66,16 @@ class _AdminJwelleryState extends State<AdminJwellery> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => AdminUser(),
+                                            builder: (context) => AdminJwellview(
+                                              id:JwellList[index].id
+                                            ),
                                           ));
                                     },
                                     child: Icon(CupertinoIcons.eye)),
                                 SizedBox(
                                   height: MediaQuery.of(context).size.height * .03,
                                 ),
-                                Icon(Icons.edit),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height * .02,
-                                ),
+
                                 InkWell(
                                     onTap: (){
                                       setState(() {
