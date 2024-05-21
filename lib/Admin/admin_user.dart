@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:demo/Admin/AdminUserView.dart';
+import 'package:demo/Admin/admin_viewuser.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +62,7 @@ class _AdminUserState extends State<AdminUser> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => AdminViewUser(),
+                                            builder: (context) => AdminViewUser( id:UserList[index].id,),
                                           ));
                                     },
                                     child: Icon(CupertinoIcons.eye)),

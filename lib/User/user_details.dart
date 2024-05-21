@@ -12,7 +12,7 @@ class UserDetail extends StatefulWidget {
 }
 
 class _UserDetailState extends State<UserDetail> {
-  List<String> option = ['option1', 'option 2', 'option3'];
+  List<String> option = ['Female', 'Male', 'Other'];
   String curentoption = ('0');
   final formkey = GlobalKey<FormState>();
 

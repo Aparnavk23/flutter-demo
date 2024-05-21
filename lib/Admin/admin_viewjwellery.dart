@@ -123,6 +123,10 @@ class _AdminJwellviewState extends State<AdminJwellview> {
                     "Owner Name:",
                     style: TextStyle(color: Colors.grey),
                   ),
+                  Text(
+                    jewuser!["Owner Name"],
+                    style: TextStyle(color: Colors.grey),
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .01,
                   ),
@@ -137,6 +141,10 @@ class _AdminJwellviewState extends State<AdminJwellview> {
                     "GST Number:",
                     style: TextStyle(color: Colors.grey),
                   ),
+                  Text(
+                    jewuser!["GST Number"],
+                    style: TextStyle(color: Colors.grey),
+                  ),
                   Divider(
                     endIndent: 20,
                   ),
@@ -145,6 +153,10 @@ class _AdminJwellviewState extends State<AdminJwellview> {
                   ),
                   Text(
                     "Licence Number:",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  Text(
+                    jewuser!["Licence Number"],
                     style: TextStyle(color: Colors.grey),
                   ),
                   Divider(
@@ -157,6 +169,10 @@ class _AdminJwellviewState extends State<AdminJwellview> {
                     "Address:",
                     style: TextStyle(color: Colors.grey),
                   ),
+                  Text(
+                    jewuser!["Address"],
+                    style: TextStyle(color: Colors.grey),
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .01,
                   ),
@@ -164,10 +180,14 @@ class _AdminJwellviewState extends State<AdminJwellview> {
                     endIndent: 20,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: MediaQuery.of(context).size.height * .01,
                   ),
                   Text(
                     "Phone Number:",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  Text(
+                    jewuser!["Phone Number"],
                     style: TextStyle(color: Colors.grey),
                   ),
                   Divider(
@@ -178,6 +198,10 @@ class _AdminJwellviewState extends State<AdminJwellview> {
                   ),
                   Text(
                     "Email:",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  Text(
+                    jewuser!["Mail"],
                     style: TextStyle(color: Colors.grey),
                   ),
                   Divider(

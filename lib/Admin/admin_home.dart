@@ -25,7 +25,7 @@ class _AdminHomeState extends State<AdminHome> {
     backgroundColor: Colors.black,
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(40),
+          padding: EdgeInsets.all(50),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -72,7 +72,7 @@ class _AdminHomeState extends State<AdminHome> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height:15,
               ),
               InkWell(
                 onTap: (){
@@ -101,7 +101,7 @@ class _AdminHomeState extends State<AdminHome> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               Container(
                 height: 78,
@@ -121,28 +121,25 @@ class _AdminHomeState extends State<AdminHome> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
-              Container(
-                height: 78,
-                width: 197,
-                child: Center(
-                  child: Text(
-                    "Payment",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 28,
-                    ),
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color.fromRGBO(217, 217, 217, 1),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
+              // Container(
+              //   height: 78,
+              //   width: 197,
+              //   child: Center(
+              //     child: Text(
+              //       "Payment",
+              //       style: TextStyle(
+              //         color: Colors.black,
+              //         fontSize: 28,
+              //       ),
+              //     ),
+              //   ),
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(10),
+              //     color: Color.fromRGBO(217, 217, 217, 1),
+              //   ),
+              // ),
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo/Admin/admin_login.dart';
+import 'package:demo/User/user_Actype.dart';
 import 'package:demo/User/user_create.dart';
 import 'package:demo/User/user_type.dart';
 import 'package:flutter/cupertino.dart';
@@ -39,7 +40,13 @@ class _UserLoginState extends State<UserLogin> {
                           Row(
                             children: [
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => UserType()),
+                                    );
+                                  },
                                   child: Text('Login',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 24))),
@@ -58,7 +65,7 @@ class _UserLoginState extends State<UserLogin> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => UserType()),
+                                          builder: (context) => UserAcType()),
                                     );
                                   },
                                   child: Text(
