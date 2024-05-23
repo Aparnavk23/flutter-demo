@@ -14,7 +14,7 @@ class AdminJwellview extends StatefulWidget {
 class _AdminJwellviewState extends State<AdminJwellview> {
   GETDOC() async {
     jewuser = await FirebaseFirestore.instance
-        .collection('JwellReg')
+        .collection('JewReg')
         .doc(widget.id)
         .get();
   }
@@ -197,7 +197,7 @@ class _AdminJwellviewState extends State<AdminJwellview> {
                     height: MediaQuery.of(context).size.height * .01,
                   ),
                   Text(
-                    "Email:",
+                    "Email",
                     style: TextStyle(color: Colors.grey),
                   ),
                   Text(

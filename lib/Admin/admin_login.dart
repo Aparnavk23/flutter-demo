@@ -8,8 +8,6 @@ class Adminlogin extends StatefulWidget {
   @override
   State<Adminlogin> createState() => _AdminloginState();
 }
-
-
 class _AdminloginState extends State<Adminlogin> {
   adlogin() {
     if (email.text == 'admin@gmail.com' && password.text == '123') {

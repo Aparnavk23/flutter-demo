@@ -18,7 +18,7 @@ class _JwelleryLoginState extends State<JwelleryLogin> {
   String id = "";
   void jwellLogin() async {
     final user = await FirebaseFirestore.instance
-        .collection('JwellReg')
+        .collection('JewReg')
         .where('Mail', isEqualTo: mail.text)
         .where('Password', isEqualTo: password.text)
         .get();
@@ -61,7 +61,7 @@ class _JwelleryLoginState extends State<JwelleryLogin> {
               children: [
                 Text(
                   'Login/Register',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+                  style: TextStyle(color: Colors.orangeAccent, fontSize: 24),
                 ),
                 Text(
                   "Start to save Everyday.",
@@ -95,7 +95,7 @@ class _JwelleryLoginState extends State<JwelleryLogin> {
                   controller: password,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'please enter ';
+                      return 'please enter correct password ';
                     }
                   },
                   obscureText: true,

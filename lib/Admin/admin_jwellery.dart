@@ -27,7 +27,7 @@ class _AdminJwelleryState extends State<AdminJwellery> {
         ),
         backgroundColor: Colors.black,
         body: FutureBuilder(
-          future: FirebaseFirestore.instance.collection("JwellReg").get(),
+          future: FirebaseFirestore.instance.collection("JewReg").get(),
           builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
             if(snapshot.connectionState==ConnectionState.waiting){
               return CircularProgressIndicator();
@@ -79,7 +79,7 @@ class _AdminJwelleryState extends State<AdminJwellery> {
                                 InkWell(
                                     onTap: (){
                                       setState(() {
-                                        FirebaseFirestore.instance.collection("JwellReg").doc(JwellList[index].id).delete();
+                                        FirebaseFirestore.instance.collection("JewReg").doc(JwellList[index].id).delete();
                                       });
                                     },
                                     child: Icon(CupertinoIcons.delete)),

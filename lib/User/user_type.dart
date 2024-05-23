@@ -1,3 +1,5 @@
+import 'package:demo/Jwellery/jwellery_login.dart';
+import 'package:demo/Jwellery/jwellery_register.dart';
 import 'package:demo/User/User_create.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +35,7 @@ class _UserTypeState extends State<UserType> {
                        height:72,
                        width: 245,
                        child: ElevatedButton(onPressed: (){
-                         Navigator.push(context, MaterialPageRoute(builder:(context) =>UserCreate()),);
+                         Navigator.push(context, MaterialPageRoute(builder:(context) =>JwelleryLogin()),);
                        }, child: Text('Jwellery',style: TextStyle(fontSize: 24 ),),style: ElevatedButton.styleFrom(backgroundColor:Color.fromRGBO(250, 205, 24, 1),foregroundColor:Colors.black,))),
                  ],
                ),

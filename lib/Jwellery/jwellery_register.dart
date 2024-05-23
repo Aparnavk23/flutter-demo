@@ -21,7 +21,8 @@ class _JwelleryRegisterState extends State<JwelleryRegister> {
   var password = TextEditingController();
   var confirmpassword = TextEditingController();
   Future<dynamic> JwellReg() async {
-    await FirebaseFirestore.instance.collection("JwellReg").add({
+    print("done");
+    await FirebaseFirestore.instance.collection("JewReg").add({
       "Jwellery Name": jwelleryname.text,
       "Owner Name": ownername.text,
       "GST Number": gstnumber.text,
@@ -37,8 +38,6 @@ Navigator.push(context, MaterialPageRoute(builder: (context) {
   return JwelleryLogin();
 },));
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Form(

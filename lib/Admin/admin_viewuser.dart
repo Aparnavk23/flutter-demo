@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 class AdminViewUser extends StatefulWidget {
   const AdminViewUser({super.key, required this.id});
   final id;
-
   @override
   State<AdminViewUser> createState() => _AdminViewUserState();
 }
@@ -32,7 +31,6 @@ class _AdminViewUserState extends State<AdminViewUser> {
           if (snapshot.hasError) {
             return Text("Error:${snapshot.error}");
           }
-
           return Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
