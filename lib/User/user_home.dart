@@ -1,3 +1,4 @@
+import 'package:demo/User/user_buy.dart';
 import 'package:flutter/material.dart';
 
 class UserHome extends StatefulWidget {
@@ -38,7 +39,13 @@ class _UserHomeState extends State<UserHome> {
             Padding(
               padding: const EdgeInsets.only(left: 35),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UserBuy(),
+                      ));
+                },
                 child: Container(
                   height: 240,
                   width: 345,
@@ -67,7 +74,7 @@ class _UserHomeState extends State<UserHome> {
                       child: Text(
                     'Sell',
                     style: TextStyle(fontSize: 24),
-                  ) ),
+                  )  ),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
                       color: Colors.white),

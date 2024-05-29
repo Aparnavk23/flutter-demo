@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo/Jwellery/jwellery_stock.dart';
+import 'package:demo/Jwellery/jwellerybottombutton.dart';
 import 'package:demo/User/user_details.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +32,7 @@ class _JwelleryLoginState extends State<JwelleryLogin> {
       print("get sp");
       Navigator.push(context, MaterialPageRoute(
         builder: (context) {
-          return JwelleryStock();
+          return BottomButton();
         },
       ));
     } else {

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:demo/Jwellery/bottombutton.dart';
+import 'package:demo/Jwellery/jwellerybottombutton.dart';
 import 'package:demo/User/user_details.dart';
 import 'package:demo/User/user_home.dart';
 import 'package:flutter/material.dart';

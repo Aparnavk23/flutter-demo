@@ -1,3 +1,4 @@
+import 'package:demo/Jwellery/jwellery_profile.dart';
 import 'package:demo/Jwellery/jwellery_register.dart';
 import 'package:demo/Jwellery/jwellery_stock.dart';
 import 'package:demo/User/User_profile.dart';

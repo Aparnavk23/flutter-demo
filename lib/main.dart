@@ -2,7 +2,7 @@ import 'package:demo/Admin/admin_home.dart';
 import 'package:demo/Admin/admin_login.dart';
 import 'package:demo/Admin/admin_user.dart';
 import 'package:demo/Admin/admin_viewjwellery.dart';
-import 'package:demo/Jwellery/bottombutton.dart';
+import 'package:demo/Jwellery/jwellerybottombutton.dart';
 import 'package:demo/Jwellery/jwellery_login.dart';
 import 'package:demo/Jwellery/jwellery_register.dart';
 import 'package:demo/User/User_create.dart';
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  UserLogin( ),
+      home: UserLogin( ),
     );
   }
 }
