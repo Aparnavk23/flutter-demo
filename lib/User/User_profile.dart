@@ -105,7 +105,7 @@ class _UserprofileState extends State<Userprofile> {
                                       MediaQuery.of(context).size.width * .04,
                                 ),
                                 Text(
-                                  user!["User Name"],
+                                  user!["User Name "],
                                   style: TextStyle(color: Colors.grey),
                                 ),
                               ],
@@ -231,7 +231,7 @@ class _UserprofileState extends State<Userprofile> {
                                       child: Text("Logout",
                                           style: GoogleFonts.ubuntu(
                                               color: Colors.black,
-                                              fontSize: 20)),
+                                              fontSize: 10)),
                                     ),
                                   ),
                                 ),

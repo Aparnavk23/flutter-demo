@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class UserHome extends StatefulWidget {
   const UserHome({super.key});
+
   @override
   State<UserHome> createState() => _UserHomeState();
 }
+
 class _UserHomeState extends State<UserHome> {
   @override
   Widget build(BuildContext context) {
@@ -20,89 +22,102 @@ class _UserHomeState extends State<UserHome> {
               SizedBox(
                 width: 5,
               ),
-              Text('Current Gold Rate:',style: TextStyle(fontSize: 20),),
+              Text(
+                'Current Gold Rate:',
+                style: TextStyle(fontSize: 20),
+              ),
               SizedBox(
-                width:6,
+                width: 6,
               ),
               Text(
-                'Rs.6815/gm',style: TextStyle(fontSize: 20),
+                'Rs.6815/gm',
+                style: TextStyle(fontSize: 20),
                 overflow: TextOverflow.ellipsis, // Handle overflow
               ),
             ],
           ),
         ),
-        body: Column(
-          children: [
-            SizedBox(
-              height: 25,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 35),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 35),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => UserBuy(),
-                      ));
-                },
-                child: Container(
-                  height: 240,
-                  width: 345,
-                  child: Center(
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 200,
+                    width: 345,
+                    child: Center(
                       child: Text(
-                    'Buy',
-                    style: TextStyle(fontSize: 24),
-                  )),
-                  decoration: BoxDecoration(
+                        'Buy',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
-                      color: Colors.white),
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 35),
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 240,
-                  width: 345,
-                  child: Center(
+              SizedBox(
+                height: 50,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 35),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 200,
+                    width: 345,
+                    child: Center(
                       child: Text(
-                    'Sell',
-                    style: TextStyle(fontSize: 24),
-                  )  ),
-                  decoration: BoxDecoration(
+                        'Sell',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
-                      color: Colors.white),
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 35),
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 60,
-                  width: 345,
-                  child: Center(
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 35),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 60,
+                    width: 345,
+                    child: Center(
                       child: Text(
-                    'History',
-                    style: TextStyle(fontSize: 24),
-                  )),
-                  decoration: BoxDecoration(
+                        'History',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
-                      color: Color.fromRGBO(250, 205, 24, 1)),
+                      color: Color.fromRGBO(250, 205, 24, 1),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
