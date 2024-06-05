@@ -1,4 +1,5 @@
 import 'package:demo/User/user_buy.dart';
+import 'package:demo/User/user_history.dart';
 import 'package:flutter/material.dart';
 
 class UserHome extends StatefulWidget {
@@ -99,7 +100,9 @@ class _UserHomeState extends State<UserHome> {
               Padding(
                 padding: const EdgeInsets.only(left: 35),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>UserHistory()));
+                  },
                   child: Container(
                     height: 60,
                     width: 345,

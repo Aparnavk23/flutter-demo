@@ -105,7 +105,7 @@ class _UserprofileState extends State<Userprofile> {
                                       MediaQuery.of(context).size.width * .04,
                                 ),
                                 Text(
-                                  user!["User Name "],
+                                  user!["User Name"],
                                   style: TextStyle(color: Colors.grey),
                                 ),
                               ],
