@@ -14,8 +14,8 @@ class BottomButton extends StatefulWidget {
 class _BottomButtonState extends State<BottomButton> {
   int currentindex=0;
   final pages=[
-    UserHome(),
-    Userprofile(),
+    JwelleryStock(),
+    JwelleryProfile(),
   ];
   @override
   Widget build(BuildContext context) {

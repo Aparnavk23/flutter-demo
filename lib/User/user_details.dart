@@ -31,6 +31,7 @@ class _UserDetailState extends State<UserDetail> {
       "Gender":curentoption,
       "Password": password.text,
       "Confirm Password": confirmpassword.text,
+      "path":'1',
     });
     print('done');
     Navigator.push(context, MaterialPageRoute(builder: (context) {

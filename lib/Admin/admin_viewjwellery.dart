@@ -123,8 +123,7 @@ class _AdminJwellviewState extends State<AdminJwellview> {
                     "Owner Name:",
                     style: TextStyle(color: Colors.grey),
                   ),
-                  Text(
-                    jewuser!["Owner Name"],
+                  Text((""),
                     style: TextStyle(color: Colors.grey),
                   ),
                   SizedBox(

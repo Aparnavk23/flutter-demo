@@ -30,7 +30,9 @@ class _JwelleryProfileState extends State<JwelleryProfile> {
 
   GETFILE() async {
     jwellery = await FirebaseFirestore.instance.collection('JewReg').doc(ID).get();
+    print(jwellery);
   }
+
 
   DocumentSnapshot? jwellery;
   @override
@@ -79,13 +81,10 @@ class _JwelleryProfileState extends State<JwelleryProfile> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .02,
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * .04,
-                  ),
                   Row(
                     children: [
                       Text(
-                        "Name :",
+                        " Jwellery Name :",
                         style: TextStyle(color: Colors.grey),
                       ),
                       SizedBox(
@@ -93,7 +92,7 @@ class _JwelleryProfileState extends State<JwelleryProfile> {
                         MediaQuery.of(context).size.width * .04,
                       ),
                       Text(
-                        jwellery!["User Name"],
+                        jwellery?["Jwellery Name"],
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
@@ -108,7 +107,7 @@ class _JwelleryProfileState extends State<JwelleryProfile> {
                   Row(
                     children: [
                       Text(
-                        "Gender :",
+                        "Address :",
                         style: TextStyle(color: Colors.grey),
                       ),
                       SizedBox(
@@ -118,7 +117,7 @@ class _JwelleryProfileState extends State<JwelleryProfile> {
                       Padding(
                         padding: const EdgeInsets.only(),
                         child: Text(
-                          jwellery!["Gender"],
+                          jwellery!["Address"],
                           style: TextStyle(color: Colors.grey),
                         ),
                       ),
@@ -167,23 +166,23 @@ class _JwelleryProfileState extends State<JwelleryProfile> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .01,
                   ),
-                  Text(
-                    "",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Divider(
-                    endIndent: 20,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * .01,
-                  ),
-                  Text(
-                    "",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01,
-                  ),
+                  // Text(
+                  //   "",
+                  //   style: TextStyle(color: Colors.grey),
+                  // ),
+                  // Divider(
+                  //   endIndent: 20,
+                  // ),
+                  // SizedBox(
+                  //   height: MediaQuery.of(context).size.height * .01,
+                  // ),
+                  // Text(
+                  //   "",
+                  //   style: TextStyle(color: Colors.grey),
+                  // ),
+                  // SizedBox(
+                  //   height: MediaQuery.of(context).size.height * 0.01,
+                  // ),
                   TextButton(
                     onPressed: (){},
                     child: Text(

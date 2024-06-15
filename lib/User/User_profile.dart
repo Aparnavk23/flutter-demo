@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo/User/User_create.dart';
 import 'package:demo/User/user_details.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 class Userprofile extends StatefulWidget {
   const Userprofile({
@@ -35,6 +40,61 @@ class _UserprofileState extends State<Userprofile> {
   }
 
   DocumentSnapshot? user;
+  PickedFile? _image;
+
+  Future<void> _getImage() async {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = PickedFile(pickedFile.path);
+        print("picked image");
+        update();
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
+  Future<void> update() async {
+    try {
+      if (_image != null) {
+        print("in");
+        final ref = firebase_storage.FirebaseStorage.instance
+            .ref()
+            .child('profile_user')
+            .child(DateTime.now().millisecondsSinceEpoch.toString());
+        await ref.putFile(File(_image!.path));
+
+        final imageURL = await ref.getDownloadURL();
+
+        await FirebaseFirestore.instance.collection('UserReg').doc(ID).update({
+          'path': imageURL,
+        });
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Profile updated successfully'),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('No image selected'),
+          ),
+        );
+      }
+    } catch (e) {
+      print('Error updating profile: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Error updating profile'),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -48,6 +108,20 @@ class _UserprofileState extends State<Userprofile> {
                 return Text("Error:${snapshot.error}");
               }
               return Scaffold(
+                floatingActionButton: Padding(
+                  padding: const EdgeInsets.only(bottom: 610, right: 300),
+                  child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _getImage();
+                        });
+                      },
+                      icon: Icon(
+                        CupertinoIcons.plus_app_fill,
+                        color: Colors.white,
+                        size: 23,
+                      )),
+                ),
                 backgroundColor: Colors.black,
                 body: Column(
                   children: [
@@ -68,23 +142,27 @@ class _UserprofileState extends State<Userprofile> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(right: 300),
-                        child: ClipOval(
-                          child: Padding(
-                            padding: const EdgeInsets.all(30),
-                            child: Image.asset(
-                              "assets/profile.png",
-                              height: 40,
-                              width: 40,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ),
-                      ),
+                          padding: const EdgeInsets.only(right: 325),
+                          child: user!["path"] == "1"
+                              ? Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: ClipOval(
+                                    child: Image.asset(
+                                      "assets/profile.png",
+                                      height: 40,
+                                      width: 80,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                )
+                              : CircleAvatar(
+                                  radius: 10,
+                                  backgroundImage: NetworkImage(user!["path"]),
+                                )),
                     ),
                     Container(
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 20),
+                        padding: const EdgeInsets.only(left:10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -157,7 +235,7 @@ class _UserprofileState extends State<Userprofile> {
                               endIndent: 20,
                             ),
                             TextButton(
-                              onPressed: (){},
+                              onPressed: () {},
                               child: Text(
                                 "settings",
                                 style: TextStyle(color: Colors.grey),
@@ -170,14 +248,14 @@ class _UserprofileState extends State<Userprofile> {
                               height: MediaQuery.of(context).size.height * .01,
                             ),
                             TextButton(
-                              onPressed: (){},
+                              onPressed: () {},
                               child: Text(
                                 "Edit Profile",
                                 style: TextStyle(color: Colors.grey),
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * .01,
+                              height: MediaQuery.of(context).size.height * 0.01,
                             ),
                             Text(
                               "",
@@ -187,7 +265,7 @@ class _UserprofileState extends State<Userprofile> {
                               endIndent: 20,
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * .01,
+                              height: MediaQuery.of(context).size.height * 0.01,
                             ),
                             Text(
                               "",
@@ -197,7 +275,7 @@ class _UserprofileState extends State<Userprofile> {
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
                             TextButton(
-                              onPressed: (){},
+                              onPressed: () {},
                               child: Text(
                                 "Help & Support",
                                 style: TextStyle(color: Colors.grey),
@@ -208,6 +286,9 @@ class _UserprofileState extends State<Userprofile> {
                             ),
                             Divider(
                               endIndent: 20,
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 25),
@@ -231,7 +312,7 @@ class _UserprofileState extends State<Userprofile> {
                                       child: Text("Logout",
                                           style: GoogleFonts.ubuntu(
                                               color: Colors.black,
-                                              fontSize: 10)),
+                                              fontSize: 15)),
                                     ),
                                   ),
                                 ),

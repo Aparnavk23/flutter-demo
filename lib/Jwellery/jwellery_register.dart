@@ -20,7 +20,7 @@ class _JwelleryRegisterState extends State<JwelleryRegister> {
   var email = TextEditingController();
   var password = TextEditingController();
   var confirmpassword = TextEditingController();
-  Future<dynamic> JwellReg() async {
+  Future<dynamic> JewReg() async {
     print("done");
     await FirebaseFirestore.instance.collection("JewReg").add({
       "Jwellery Name": jwelleryname.text,
@@ -312,7 +312,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context) {
                     child: ElevatedButton(
                   onPressed: () {
                     if (formkey.currentState!.validate()) {
-                      JwellReg();
+                      JewReg();
                     }
                   },
                   child: Text(

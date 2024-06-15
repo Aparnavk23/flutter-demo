@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo/User/user_buydetails.dart';
+import 'package:demo/User/user_buyjwellview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,21 +17,21 @@ class _UserBuyState extends State<UserBuy> {
     return SafeArea(
 
       child: Scaffold(
-        appBar: AppBar(automaticallyImplyLeading: false,
-          backgroundColor: Colors.transparent,
-          title:TextFormField(  decoration: InputDecoration(
-            filled: true,
-            suffixIcon: Icon(CupertinoIcons.search),
-            fillColor: Color(0xFFD9D9D9),
-            border: OutlineInputBorder(
-              // gapPadding: 10,
-                borderRadius: BorderRadius.circular(45)
-            ),
-            labelText: "Search",
-            labelStyle:
-            TextStyle(color: Color(0xFF747070)),
-          ),),
-        ),
+        // appBar: AppBar(automaticallyImplyLeading: false,
+        //   backgroundColor: Colors.transparent,
+        //   title:TextFormField(  decoration: InputDecoration(
+        //     filled: true,
+        //     suffixIcon: Icon(CupertinoIcons.search),
+        //     fillColor: Color(0xFFD9D9D9),
+        //     border: OutlineInputBorder(
+        //       // gapPadding: 10,
+        //         borderRadius: BorderRadius.circular(45)
+        //     ),
+        //     labelText: "Search",
+        //     labelStyle:
+        //     TextStyle(color: Color(0xFF747070)),
+        //   ),),
+        // ),
         backgroundColor: Colors.black,
         body:FutureBuilder(
           future:FirebaseFirestore.instance.collection("JewReg").get(),
@@ -77,7 +78,15 @@ class _UserBuyState extends State<UserBuy> {
                                               ),
                                             ));
                                       },
-                                      child:  ElevatedButton(onPressed: (){}, child: Text("Buy",style: TextStyle(color: Colors.black),))),
+                                      child:  ElevatedButton(onPressed: (){ Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => UserJwellView(
+                                                id:JwellList[index].id
+                                            ),
+                                          ));
+
+                                      }, child: Text("Buy",style: TextStyle(color: Colors.black),))),
                                 //   SizedBox(
                                 //     height: MediaQuery.of(context).size.height * .03,
                                 //   ),

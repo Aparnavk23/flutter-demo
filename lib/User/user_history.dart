@@ -25,6 +25,7 @@ class _UserHistoryState extends State<UserHistory> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
+
                 ),
               ),
             ),
